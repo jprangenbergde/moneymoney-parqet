@@ -2,7 +2,7 @@ WebBanking{
   version = 1.0,
   url = 'https://tresor.one',
   services = {'Tresor.one'},
-  description = 'Get portfolio for Tresor.one'
+  description = 'Get portfolio from Tresor.one'
 }
 
 function SupportsBank (protocol, bankCode)
