@@ -2,7 +2,7 @@ WebBanking{
   version = 1.0,
   url = 'https://tresor.one',
   services = {'Tresor.one'},
-  description = 'Get portfolio from Tresor.one'
+  description = 'Fetches portfolio from Tresor.one'
 }
 
 function SupportsBank (protocol, bankCode)
@@ -20,7 +20,7 @@ end
 function ListAccounts (knownAccounts)
   local account = {
     name = 'Tresor.one',
-    accountNumber = 'Portfolio',
+    accountNumber = portfolio,
     portfolio = true,
     type = AccountTypePortfolio
   }
