@@ -13,7 +13,7 @@ Fetches portfolio from https://tresor.one
 
 ### Add Account
 
-* Use your portfolio hash as the username (https://app.tresor.one/p/**5f55425d139fc90007978e75**)
+* Use your portfolio identifier as the username, you will find the identifier at the end of the url (https://app.tresor.one/p/5f55425d139fc90007978e75)
 * You need no password (you can use "123", save the password)
 
 ## Known Issues and Limitations
