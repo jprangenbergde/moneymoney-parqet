@@ -1,12 +1,12 @@
 WebBanking{
   version = 1.0,
-  url = 'https://tresor.one',
-  services = {'Tresor.one'},
-  description = 'Fetches portfolio from Tresor.one'
+  url = 'https://parqet.com',
+  services = {'Parqet'},
+  description = 'Fetches portfolio from Parqet'
 }
 
 function SupportsBank (protocol, bankCode)
-  return bankCode == 'Tresor.one' and protocol == ProtocolWebBanking
+  return bankCode == 'Parqet' and protocol == ProtocolWebBanking
 end
 
 local connection
@@ -19,7 +19,7 @@ end
 
 function ListAccounts (knownAccounts)
   local account = {
-    name = 'Tresor.one',
+    name = 'Parqet',
     accountNumber = portfolio,
     portfolio = true,
     type = AccountTypePortfolio
@@ -31,7 +31,7 @@ end
 function RefreshAccount (account, since)
   local securities = {}
 
-  response = connection:get('https://api.tresor.one/v1/portfolios/' .. portfolio)
+  response = connection:get('https://api.parqet.com/v1/portfolios/' .. portfolio)
   json = JSON(response):dictionary()
 
   local holdings = json['holdings']
