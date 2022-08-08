@@ -1,6 +1,6 @@
 # MoneyMoney Parqet
 
-Fetches portfolio from Aktuell werden die Kontenbeschriftungen leider nicht mitgesendet. Bitte passen Sie die entsprechenden Exporteinstellungen an.
+Fetches portfolio from [Parqet](https://paqet.com).
 
 ![Alt text](screenshot.png "Screenshot")
 
