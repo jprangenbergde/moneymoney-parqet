@@ -2,7 +2,7 @@
 
 Fetches portfolio from [Parqet](https://paqet.com).
 
-![Alt text](screenshot.png "Screenshot")
+![Alt text](parqet.png "Screenshot")
 
 ## Setup
 
