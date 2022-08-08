@@ -49,8 +49,14 @@ function RefreshAccount (account, since)
      elseif values['assetType'] == "crypto" then
       securities[#securities+1] = {
         name = values['sharedAsset']['name'],
-        -- isin = values['security']['isin'],
-        -- securityNumber = values['security']['wkn'],
+        currency = nil,
+        quantity = values['position']['shares'],
+        price = values['position']['currentPrice'],
+        purchasePrice = values['position']['purchasePrice']
+      }
+     elseif values['assetType'] == "cash" then
+      securities[#securities+1] = {
+        name = values['nickname'],
         currency = nil,
         quantity = values['position']['shares'],
         price = values['position']['currentPrice'],
