@@ -36,15 +36,29 @@ function RefreshAccount (account, since)
 
   local holdings = json['holdings']
   for index, values in pairs(holdings) do
-    securities[#securities+1] = {
-      name = values['security']['name'],
-      isin = values['security']['isin'],
-      securityNumber = values['security']['wkn'],
-      currency = nil,
-      quantity = values['position']['shares'],
-      price = values['position']['currentPrice'],
-      purchasePrice = values['position']['purchasePrice']
-    }
+    if values['assetType'] == "security" then
+      securities[#securities+1] = {
+        name = values['security']['name'],
+        isin = values['security']['isin'],
+        securityNumber = values['security']['wkn'],
+        currency = nil,
+        quantity = values['position']['shares'],
+        price = values['position']['currentPrice'],
+        purchasePrice = values['position']['purchasePrice']
+      }
+     elseif values['assetType'] == "crypto" then
+      securities[#securities+1] = {
+        name = values['sharedAsset']['name'],
+        -- isin = values['security']['isin'],
+        -- securityNumber = values['security']['wkn'],
+        currency = nil,
+        quantity = values['position']['shares'],
+        price = values['position']['currentPrice'],
+        purchasePrice = values['position']['purchasePrice']
+      }
+     else
+      securities[#securities+1] = {}
+     end
   end
 
   return {securities=securities}
