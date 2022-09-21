@@ -1,6 +1,6 @@
 # MoneyMoney Parqet
 
-Fetches portfolio from [Parqet](https://paqet.com).
+Fetches portfolio from [Parqet](https://parqet.com).
 
 ![Alt text](parqet.png "Screenshot")
 
