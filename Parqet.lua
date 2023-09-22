@@ -38,8 +38,8 @@ function RefreshAccount (account, since)
   for index, values in pairs(holdings) do
     if values['assetType'] == "security" then
       securities[#securities+1] = {
-        name = values['security']['name'],
-        isin = values['security']['isin'],
+        name = values['sharedAsset']['name'],
+        isin = values['security'],
         securityNumber = values['security']['wkn'],
         currency = nil,
         quantity = values['position']['shares'],
