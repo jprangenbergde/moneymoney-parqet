@@ -31,7 +31,8 @@ end
 function RefreshAccount (account, since)
   local securities = {}
 
-  response = connection:get('https://api.parqet.com/v1/portfolios/' .. portfolio)
+  local postData = '{"portfolioIds": "' .. portfolio .. '", "timeframe": "today"}'
+  response = connection:request('POST', 'https://api.parqet.com/v1/portfolios/assemble', postData, 'application/json')
   json = JSON(response):dictionary()
 
   local holdings = json['holdings']
