@@ -31,12 +31,13 @@ end
 function RefreshAccount (account, since)
   local securities = {}
 
-  response = connection:get('https://api.parqet.com/v1/portfolios/' .. portfolio)
+  local postData = '{"portfolioIds": "' .. portfolio .. '", "timeframe": "today"}'
+  response = connection:request('POST', 'https://api.parqet.com/v1/portfolios/assemble', postData, 'application/json')
   json = JSON(response):dictionary()
 
   local holdings = json['holdings']
   for index, values in pairs(holdings) do
-    if values['assetType'] == "security" then
+    if values['assetType'] == "Security" then
       securities[#securities+1] = {
         name = values['sharedAsset']['name'],
         isin = values['security'],
@@ -46,7 +47,7 @@ function RefreshAccount (account, since)
         price = values['position']['currentPrice'],
         purchasePrice = values['position']['purchasePrice']
       }
-     elseif values['assetType'] == "crypto" then
+     elseif values['assetType'] == "Crypto" then
       securities[#securities+1] = {
         name = values['sharedAsset']['name'],
         currency = nil,
@@ -54,7 +55,7 @@ function RefreshAccount (account, since)
         price = values['position']['currentPrice'],
         purchasePrice = values['position']['purchasePrice']
       }
-     elseif values['assetType'] == "cash" then
+     elseif values['assetType'] == "Cash" then
       securities[#securities+1] = {
         name = values['nickname'],
         currency = nil,
